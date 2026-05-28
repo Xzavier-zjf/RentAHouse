@@ -1,9 +1,8 @@
 # RentAHouse
 
-RentAHouse is a multi-module rental platform built with Spring Boot and a Vue frontend.
-It includes user/account management, house listing management, orders, comments, messaging, and a gateway.
+RentAHouse 是一个基于 Spring Boot + Vue 的多模块租房平台，包含用户与账号、房源管理、订单、评论、消息和网关等核心能力。
 
-## Tech Stack
+## 技术栈
 
 - Java 17
 - Spring Boot 3.2.x
@@ -12,73 +11,72 @@ It includes user/account management, house listing management, orders, comments,
 - MyBatis-Plus
 - MySQL
 - Redis
-- MongoDB (file storage via GridFS)
-- RabbitMQ (order timeout flow)
-- Vue 3 + Vite (frontend)
+- MongoDB（GridFS 文件存储）
+- RabbitMQ（订单超时流程）
+- Vue 3 + Vite（前端）
 
-## Project Structure
+## 项目结构
 
-- `rental-gateway`: API gateway and global auth filter
-- `rental-common`: shared utilities, exceptions, auth helpers
-- `rental-user`: users, login, profile, admin user management
-- `rental-house`: house listing and favorite features
-- `rental-order`: order lifecycle and payment simulation
-- `rental-comment`: house comments
-- `rental-message`: chat/system messages
-- `frontend`: Vue-based UI
-- `database`: SQL scripts and DB assets
+- `rental-gateway`：API 网关与统一鉴权过滤
+- `rental-common`：公共工具、异常、认证辅助
+- `rental-user`：用户注册登录、资料与后台用户管理
+- `rental-house`：房源发布、查询与收藏
+- `rental-order`：订单生命周期与支付模拟
+- `rental-comment`：房源评论
+- `rental-message`：聊天与系统消息
+- `frontend`：Vue 前端工程
+- `database`：数据库脚本
 
-## Prerequisites
+## 环境要求
 
 - JDK 17
-- Maven Wrapper (`mvnw.cmd` provided)
+- Maven Wrapper（已提供 `mvnw.cmd`）
 - MySQL
 - Redis
 - MongoDB
 - RabbitMQ
-- Node.js 18+ (for frontend)
+- Node.js 18+（前端）
 
-## Quick Start (Dev)
+## 快速启动（开发环境）
 
-1. Start infrastructure: MySQL, Redis, MongoDB, RabbitMQ.
-2. Set profile:
-   - PowerShell: `$env:SPRING_PROFILES_ACTIVE='dev'`
-3. Run backend services (recommended order):
+1. 启动基础设施：MySQL、Redis、MongoDB、RabbitMQ。
+2. 设置环境：
+   - PowerShell：`$env:SPRING_PROFILES_ACTIVE='dev'`
+3. 启动后端服务（建议顺序）：
    1. `rental-user`
    2. `rental-house`
    3. `rental-comment`
    4. `rental-message`
    5. `rental-order`
    6. `rental-gateway`
-4. Start frontend:
+4. 启动前端：
    - `cd frontend`
    - `npm install`
    - `npm run dev`
 
-## Build and Test
+## 构建与测试
 
-- Run all tests:
+- 执行全部测试：
   - `.\mvnw.cmd test`
-- Build all modules:
+- 打包全部模块：
   - `.\mvnw.cmd clean package -DskipTests`
 
-## Profiles and Config
+## 配置与环境
 
-- Base config in each module: `src/main/resources/application.yml`
-- Dev overrides: `application-dev.yml`
-- Prod overrides: `application-prod.yml`
+- 各模块基础配置：`src/main/resources/application.yml`
+- 开发环境覆盖：`application-dev.yml`
+- 生产环境覆盖：`application-prod.yml`
 
-For production-required env vars and go-live checks, see:
+生产环境上线前的变量与检查项请参考：
 
 - `DEPLOYMENT_CHECKLIST.md`
 
-## Security Notes
+## 安全说明
 
-- JWT secret must be provided by environment variables in production.
-- CORS origins should be explicitly configured in gateway prod settings.
-- Do not expose internal services directly to the public network.
+- 生产环境必须通过环境变量配置 JWT 密钥，且使用高强度随机值。
+- 网关 CORS 必须只允许可信前端域名。
+- 不要将内部服务直接暴露到公网。
 
-## License
+## 许可证
 
-For personal/educational use unless otherwise specified by repository owner.
-
+除仓库所有者另有说明外，本项目默认用于个人学习与教学演示。
