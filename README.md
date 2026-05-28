@@ -54,6 +54,11 @@ RentAHouse 是一个基于 Spring Boot + Vue 的多模块租房平台，包含�
    - `npm install`
    - `npm run dev`
 
+## 默认管理员账号
+
+- 账号：`admin`
+- 密码：`admin123`
+
 ## 构建与测试
 
 - 执行全部测试：
