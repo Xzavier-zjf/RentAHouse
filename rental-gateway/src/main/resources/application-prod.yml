@@ -1,0 +1,15 @@
+rental:
+  jwt:
+    secret: ${RENTAL_JWT_SECRET}
+    expire-seconds: ${RENTAL_JWT_EXPIRE_SECONDS:7200}
+  cors:
+    allowed-origins: ${RENTAL_CORS_ALLOWED_ORIGINS}
+  services:
+    user-url: ${RENTAL_USER_URL}
+    house-url: ${RENTAL_HOUSE_URL}
+    order-url: ${RENTAL_ORDER_URL}
+    comment-url: ${RENTAL_COMMENT_URL}
+    message-url: ${RENTAL_MESSAGE_URL}
+
+debug: false
+

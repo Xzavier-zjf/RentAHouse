@@ -1,0 +1,22 @@
+server:
+  port: 8888
+
+rental:
+  jwt:
+    secret: ${RENTAL_JWT_SECRET:local-dev-rental-platform-secret-change-me}
+    expire-seconds: ${RENTAL_JWT_EXPIRE_SECONDS:7200}
+  cors:
+    allowed-origins: ${RENTAL_CORS_ALLOWED_ORIGINS:http://localhost:5173,http://127.0.0.1:5173}
+  services:
+    user-url: ${RENTAL_USER_URL:http://localhost:9001}
+    house-url: ${RENTAL_HOUSE_URL:http://localhost:9002}
+    order-url: ${RENTAL_ORDER_URL:http://localhost:9003}
+    comment-url: ${RENTAL_COMMENT_URL:http://localhost:9004}
+    message-url: ${RENTAL_MESSAGE_URL:http://localhost:9005}
+
+spring:
+  application:
+    name: rental-gateway
+  cloud:
+    gateway:
+debug: ${APP_DEBUG:false}

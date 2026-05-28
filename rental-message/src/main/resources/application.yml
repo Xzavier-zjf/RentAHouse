@@ -1,0 +1,31 @@
+server:
+  port: 9005
+
+spring:
+  application:
+    name: rental-message
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/rental_platform?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:123456}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.example.rentalmessage.entity
+
+rental:
+  jwt:
+    secret: ${RENTAL_JWT_SECRET:local-dev-rental-platform-secret-change-me}
+    expire-seconds: ${RENTAL_JWT_EXPIRE_SECONDS:7200}
+
+logging:
+  level:
+    root: ${LOG_LEVEL_ROOT:INFO}
+    org.springframework.web: ${LOG_LEVEL_WEB:INFO}

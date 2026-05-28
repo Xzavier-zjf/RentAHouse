@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT:6379}
+    mongodb:
+      uri: ${MONGODB_URI}
+
+rental:
+  jwt:
+    secret: ${RENTAL_JWT_SECRET}
+    expire-seconds: ${RENTAL_JWT_EXPIRE_SECONDS:7200}
+
+debug: false
+
